@@ -3,7 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Forma, Pole, AddBTN } from "./ContactForm.styled";
 import { useSelector, useDispatch } from "react-redux";
-import { addContact } from '../Redux/operations';
+import { addContact } from '../../Redux/operations';
 import { selectContacts } from "Redux/selectors";
 
 const FormSchema = Yup.object().shape({

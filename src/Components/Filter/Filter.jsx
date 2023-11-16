@@ -1,7 +1,7 @@
 import React from "react";
 import { Filt } from "./Filter.styled";
 import { useDispatch } from 'react-redux';
-import { setFilter } from '../Redux/contactsSlice';
+import { setFilter } from '../../Redux/contactsSlice';
 
 const handleInputChange = (evt, toSearch) => {
     toSearch(evt.target.value);
