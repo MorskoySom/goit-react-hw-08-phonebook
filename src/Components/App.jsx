@@ -1,34 +1,38 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "../Redux/operations";
-import { selectIsLoading, selectError } from "../Redux/selectors";
+// import { useEffect, lazy } from 'react';
+import { lazy } from 'react';
+// import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout';
+// import { PrivateRoute } from './PrivateRoute';
+// import { RestrictedRoute } from './RestrictedRoute';
+// import { refreshUser } from 'redux/auth/operations';
+// import { useAuth } from 'hooks';
 
-import { ContactList } from "Components/ContactsList/ContactsList";
-import { ContactForm } from "Components/ContactForm/ContactForm";
-import { Filter } from "Components/Filter/Filter";
-import { Container } from 'Components/App.styled'
+const HomePage = lazy(() => import('../Pages/Home'));
+const RegisterPage = lazy(() => import('../Pages/Register'));
+const LoginPage = lazy(() => import('../Pages/Login'));
+// const TasksPage = lazy(() => import('../pages/Tasks'));
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  // const dispatch = useDispatch();
+  // const { isRefreshing } = useAuth();
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
+
 
   return (
-    <Container>
-      {isLoading && !error && <b>Request in progress...</b>}
-      {error && <p>{error}</p>}
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
-    </Container>
-  )
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
+      </Route>
+    </Routes>
+  );
 };
+
 
 
 
