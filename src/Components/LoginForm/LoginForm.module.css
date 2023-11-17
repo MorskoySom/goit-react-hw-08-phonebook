@@ -1,5 +1,7 @@
 .form {
   width: 320px;
+  justify-content: center;
+  text-align: center;
 }
 
 .label {
