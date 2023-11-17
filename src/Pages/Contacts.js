@@ -7,7 +7,7 @@ import { ContactForm } from "Components/ContactForm/ContactForm";
 import { Filter } from "Components/Filter/Filter";
 import { Container } from 'Components/App.styled'
 
-export const App = () => {
+const Phones = () => {
     const dispatch = useDispatch();
     const isLoading = useSelector(selectIsLoading);
     const error = useSelector(selectError);
@@ -28,3 +28,5 @@ export const App = () => {
         </Container>
     )
 };
+
+export default Phones;
