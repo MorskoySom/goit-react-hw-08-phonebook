@@ -18,12 +18,12 @@ const persistConfig = {
     storage,
 }
 
-const contactsPersistedReducer = persistReducer(persistConfig, contactsReducer);
+// const contactsPersistedReducer = persistReducer(persistConfig, contactsReducer);
 const authPersistedReducer = persistReducer(persistConfig, authReducer);
 
 export const store = configureStore({
     reducer: {
-        contacts: contactsPersistedReducer,
+        contacts: contactsReducer,
         auth: authPersistedReducer,
     },
     middleware(getDefaultMiddleware) {
@@ -33,7 +33,6 @@ export const store = configureStore({
             },
         })
     }
-
 })
 
 export const persistor = persistStore(store);
