@@ -14,7 +14,7 @@ const FormSchema = Yup.object().shape({
             "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         )
         .required('Name is required'),
-    phone: Yup.string()
+    number: Yup.string()
         .matches(
             /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
             'Phone number must be digits and can contain spaces, dashes, parentheses and can start with +'
@@ -26,30 +26,30 @@ export const ContactForm = () => {
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts);
 
-    const checkIfContactExists = (name, phone) => {
+    const checkIfContactExists = (name, number) => {
         const existingContact = contacts.find(
             contact => contact.name.toLowerCase() === name.toLowerCase() ||
-                contact.phone === phone
+                contact.number === number
         );
         return existingContact;
     }
 
     const handleAddContact = (newContact) => {
-        const { name, phone } = newContact;
+        const { name, number } = newContact;
 
-        if (checkIfContactExists(name, phone)) {
-            alert(`Contact with name ${name} or number ${phone} already exists!`);
+        if (checkIfContactExists(name, number)) {
+            alert(`Contact with name ${name} or number ${number} already exists!`);
             return;
         }
 
-        dispatch(addContact({ name, phone }));
+        dispatch(addContact({ name, number }));
     }
 
     return (
         <Formik
             initialValues={{
                 name: '',
-                phone: ''
+                number: ''
             }}
             validationSchema={FormSchema}
             onSubmit={(values, actions) => {
@@ -69,10 +69,10 @@ export const ContactForm = () => {
                     <div>
                         <Pole>
                             Number
-                            <Field id="lastName" type="tel" name="phone" />
+                            <Field id="lastName" type="tel" name="number" />
                         </Pole>
                     </div>
-                    <ErrorMessage name="phone" />
+                    <ErrorMessage name="number" />
                     <div>
                         <AddBTN type="submit">Add contact</AddBTN>
                     </div>

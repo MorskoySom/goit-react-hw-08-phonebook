@@ -4,7 +4,7 @@ import { deleteContact } from '../../Redux/operations';
 import { useDispatch } from 'react-redux';
 
 
-export const Contact = ({ info: { name, phone, id } }) => {
+export const Contact = ({ info: { name, number, id } }) => {
     const dispatch = useDispatch();
 
     const handleDeleteContact = (elementId) => {
@@ -12,7 +12,7 @@ export const Contact = ({ info: { name, phone, id } }) => {
     }
 
     return (<Item>
-        <p>{name} : {phone}</p>
+        <p>{name} : {number}</p>
         <Terminator onClick={() => handleDeleteContact(id)}>Delete</Terminator>
     </Item>)
 }
