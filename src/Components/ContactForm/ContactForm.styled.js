@@ -14,5 +14,12 @@ export const Pole = styled.label`
 `
 export const AddBTN = styled.button`
     width: 100%;
+    border: 2px;
+
+    &:hover {
+        background-color: green;
+        color: white;
+        cursor: pointer;
+    }
 `
 

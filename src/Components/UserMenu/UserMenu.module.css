@@ -2,8 +2,20 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  padding-right: 20px;
 }
 
 .username {
   font-weight: 700;
+  padding-right: 100px;
+}
+
+.logOutBtn {
+  cursor: pointer;
+  background-color: #b2f0e0;
+  color: #000000;
+}
+.logOutBtn:hover {
+  background-color: #cc0000;
+  color: #ffffff;
 }

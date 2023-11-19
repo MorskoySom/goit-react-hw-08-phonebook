@@ -13,5 +13,11 @@ export const Terminator = styled.button`
     color: red;
     width: 80px;
     height: 25px;
-    text-align: center;    
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        color: #ffffff;
+        background-color: #cc0000;        
+    }
 `
