@@ -28,7 +28,7 @@ export const LoginForm = () => {
                 Password
                 <Input type="password" name="password" />
             </label>
-            <Button colorScheme='teal' size='md' type="submit">Log In</Button>
+            <Button className={css.btn} type="submit">Log In</Button>
         </form>
     );
 };
